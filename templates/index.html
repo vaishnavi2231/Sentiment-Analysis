@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sentiment Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="content">
+    <h1 style="text-align: center">Sentiment Analysis</h1>
+
+    <div class="form" style="text-align:center" >
+        <form action="/predict" method="POST">
+            <input type="textarea" name="Feedback" id="feedback" placeholder="Enter Your Feedback" style="width: 30%;height: 238px;text-align: center;"><br><br>
+
+            <input type="submit" value="Predict" style="width: 10%;height: 50px;" >
+        </form>
+       <div class="my_prediction"
+	{% if prediction == 1%}
+	<h1 style="color:#008000;"><strong>Positive</strong></h1>
+	<span style='font-size:100px;'>&#128522;</span>
+
+	{% elif prediction == 0%}
+	<h1 style="color:#FF0000;"><strong>Negative</strong></h1>
+	<span style='font-size:100px;'>&#128545;</span>
+
+	{% elif prediction == 2%}
+	<h2 style="color:white;"><strong>Neutral</strong></h2>
+	<span style='font-size:100px;'>&#128528;</span>
+
+	{% elif prediction == 3%}
+        <h2 style="color:red;"><strong>Enter text atleast greater than 3 and Try Again..!!!</strong></h2>
+
+	{% endif %}
+
+    </div>
+
+
+</div>
+
+</body>
+</html>
